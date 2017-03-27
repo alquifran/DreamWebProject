@@ -1,0 +1,20 @@
+body {
+	background-color: #E4F380;
+	font-family: 'Raleway', thin;
+	font-size: 125%;
+	padding-left: 25px;
+	padding-top: 25px;
+}
+
+h1{
+	font-family: 'Raleway', thin;
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  padding-left: 25px;
+}
