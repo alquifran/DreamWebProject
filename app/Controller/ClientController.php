@@ -6,7 +6,7 @@ class ClientController
 {
 	public function index(){
 		$view = new View('templates/clients');
-		$clients = Client::listUsers();
+		$clients = Client::listusers();
 		$view->render('listausers.php', ['clients' => $clients, 'pageTitle'=>"Listado de clientes"]);
 	}
 
