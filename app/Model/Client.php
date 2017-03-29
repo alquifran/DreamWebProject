@@ -1,41 +1,34 @@
 <?php
 namespace DreamWeb\GestorTareas\Model;
 use DreamWeb\Bootstrap\Database as Db;
+use DreamWeb\GestorTareas\Model\Usuario as Usuario;
 use PDO;
 
-class Client
+class Client extends Usuario
 {
-	private $id;
-	private $direccion;
-	private $precio;
-	private $descripcion;
+	protected $telefon;
+    protected $packType;
+    protected $time;
 
-	public function __construct($id=null,
-		$direccion="", $precio="", $descripcion=""){
-		$this->id = $id;
-		$this->direccion = $direccion;
-		$this->precio = $precio;
-		$this->descripcion = $descripcion;
-	}
+	public function __construct($name,$email,$password ="",$telefon = "",$packType = "",$time = 0){
+    $this->telefon=$telefon;
+    $this->packType=$packType;
+    $this->time=$time;
+    parent::__construct($name,$email,$password);
 
-	public static function listUsers(){
-		$string = file_get_contents("usuarios.json");
-		$json_a = json_decode($string, true);
-		$array = [];
-		foreach ($json_a as $key => $value) {
-			$array [] = $key;
+
+    }
+
+	public static function listusers(){
+		$list = [];
+		$db = Db::getInstance();
+		$req = $db->query('SELECT * FROM user');
+		foreach($req->fetchAll() as $client){
+			$list[] = new Client($client['nameUser'], $client['emailUser']);
 		}
-		return $array;
-	}
 
-	public static function isClient($name){
-		$array = Client::listUsers();
-		foreach($array as $client){
-			if($name == $client){
-				return true;
-			}
-		}
-		return false;
+		return $list;
+
 	}
 	// public static function all() {
 	// 	$list = [];
@@ -46,6 +39,16 @@ class Client
 	// 	}
 	// 	return $list;
 	// }
+
+	public static function isClient($name){
+		$array = Client::listUsers();
+		foreach($array as $client){
+			if($name == $client->getName()){
+				return true;
+			}
+		}
+		return false;
+	}
 	// public static function find($id) {
 	// 	$db = Db::getInstance();
 	// 	$id = intval($id);
