@@ -1,5 +1,5 @@
 <?php
-namespace Talentum\Bootstrap;
+namespace DreamWeb\Bootstrap;
 class Request
 {
 	private $domain;

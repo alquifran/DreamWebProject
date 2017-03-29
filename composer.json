@@ -1,5 +1,16 @@
 {
-    "name": "dream-web/proyecto",
-    "description": "Proyecto del curso de PHP",
-    "require": {}
+    "name": "franb/cp2",
+    "authors": [
+        {
+            "name": "fran",
+            "email": "fran.blasco94@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+    	"psr-4":{
+    		"DreamWeb\\Bootstrap\\":"Bootstrap/",
+    		"DreamWeb\\GestorTareas\\":"app/"
+    	}
+    }
 }
