@@ -1,11 +1,11 @@
 <?php
 public class Usuario{
 
-    public $name;
-    public $email;
-    private $password;
+    protected $name;
+    protected $email;
+    protected $password;
 
-    public function __construct($name,$email,$password){
+    function __construct($name,$email = "",$password = ""){
         this->name=$name;
         this->email=$email;
         this->password=$password;
@@ -32,7 +32,7 @@ public class Usuario{
 
     }
 
-     function setPass($password{
+     function setPass($password){
         $this->password=$password;
 
 

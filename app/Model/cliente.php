@@ -1,17 +1,20 @@
 <?php
 
 public class Cliente extends Usuario{
-    protected $telefon;
-    protected $packType;
-    protected $time;
+    private $telefon;
+    private $packType;
+    private $time;
 
-public function __construct($name,$email,$password,$telefon,$packType,$time){
-    $this->telefon=$telefon;
-    $this->packType=$packType;
-    $this->time=$time;
-    parent::__construct($name,$email,$password);
+    function __construct($name,$email,$password = "",$telefon ="",$time = 0){
+        $this->telefon=$telefon;
+        $this->time=$time;
+        parent::__construct($name,$email,$password);
 
 
+    }
+
+    function listClientes(){
+        // leer archivo json
     }
 
     function setTelefon($telefon){
@@ -21,17 +24,6 @@ public function __construct($name,$email,$password,$telefon,$packType,$time){
     }
     function getTelefon(){
         return $this->telefon;
-
-
-    }
-
-    function setPackType($packType){
-        $this->packType=$packType;
-
-
-    }
-    function getPackType(){
-        return $this->packType;
 
 
     }
