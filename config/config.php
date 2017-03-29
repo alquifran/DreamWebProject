@@ -2,7 +2,7 @@
 return [
 	'db' => [
 		'host' => 'localhost',
-		'dbname' => 'pisos',
+		'dbname' => 'mydb',
 		'charset' => 'utf8',
 		'user' => 'root',
 		'password' => ''
