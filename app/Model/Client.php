@@ -39,4 +39,5 @@ class Client extends Usuario
 		}
 		return false;
 	}
-	
+    
+}	
